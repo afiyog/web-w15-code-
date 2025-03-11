@@ -9,7 +9,7 @@ pipeline {
     }
     stage('dockerImageBuild'){
         steps{
-            sh 'echo "docker -v'
+            sh 'echo docker -v'
         }
 }
     stage('pushImage'){
