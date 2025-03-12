@@ -12,7 +12,7 @@ pipeline {
         steps{
             sh 'aws ecr get-login-password --region us-east-1 | \
             docker login --username AWS \
-            --password-stdin 076892551558.dkr.ecr.us-east-1.amazonaws.com'
+            --password-stdin 737465025187.dkr.ecr.us-east-1.amazonaws.com'
         }
     }
     stage('dockerImageBuild'){
@@ -24,18 +24,18 @@ pipeline {
     stage('dockerImageTag'){
         steps{
             sh 'docker tag jenkins-ci:latest\
-             076892551558.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
+             737465025187.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
             sh 'docker tag imageversion \
-            076892551558.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:v1.$BUILD_NUMBER'
+            737465025187.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:v1.$BUILD_NUMBER'
         }    
         }
     
     stage('pushImage'){
         steps{
             sh 'docker push \
-            076892551558.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
+            737465025187.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
             sh 'docker push \
-            076892551558.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:v1.$BUILD_NUMBER'
+            737465025187.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:v1.$BUILD_NUMBER'
         }
     }
    } 
